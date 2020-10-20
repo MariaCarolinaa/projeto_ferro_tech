@@ -41,6 +41,17 @@ app.get('/perfil', (req, res) => {
     res.render('perfil');
 });
 
+app.get('/cadastroCompraMateriais', (req, res) => {
+    res.render('cadastroCompraMateriais');
+});
+
+app.get('/cadastroVendaMateriais', (req, res) => {
+    res.render('cadastroVendaMateriais');
+});
+
+app.get('/cadastroUsuario', (req, res) => {
+    res.render('cadastroUsuario');
+});
 //... your code here ...
                                 
 var port = process.env.PORT || 3000;
