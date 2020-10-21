@@ -37,6 +37,28 @@ app.post('/login', (req, res) => {
     });
 });
 
+app.post('/cadUsuario', (req, res) => {
+    var {nomeCompleto, sexoUsuario, dataNascimento, endereco, 
+        numeroEndereco, municipio, cep, bairro, celularCliente} = req.body;
+    knex("cliente").insert({
+        nome_cliente: nomeCompleto,
+        sexo_cliente: sexoUsuario,
+        data_nascimento_cliente: dataNascimento,
+        cep_cliente: cep,
+        endereco_cliente: endereco,
+        numero_endereco_cliente: numeroEndereco,
+        municipio_cliente: municipio,
+        bairro_cliente: bairro,
+        celular_cliente: celularCliente
+    }).then(()=>{
+        res.redirect('/perfil');
+    }).catch(err => {
+        res.redirect("/");
+        alert("Não cadastrado");
+    });
+
+});
+
 app.get('/perfil', (req, res) => {
     res.render('perfil');
 });
