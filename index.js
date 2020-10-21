@@ -16,7 +16,7 @@ app.use(express.static('public'));
 
 //rotas
 app.get('/', (req, res) => {
-    knex.select('*').table('material').then(material => {
+    knex.select('*').table('material').limit(9).then(material => {
         res.render('index', {materiais: material, err: false});
     })
     .catch(err =>{
