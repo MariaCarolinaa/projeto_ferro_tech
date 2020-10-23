@@ -1,0 +1,121 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+<div class="card mr-4 ml-4 mt-3 mb-3">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Unidade de referência</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Peso</th>
+                <th scope="col">Estoque</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Alterar</th>
+                <th scope="col">Excluir</th>   
+              </tr>
+            </thead>
+            <tbody>
+                <% materiais.forEach(material=>{%>
+                    <tr>
+                        <td>
+                            <%- material.codigo %> 
+                        </td>
+                        <td>
+                            <%- material.nome_material %> 
+                        </td>
+                        <td>
+                            <%- material.unidade_referencia %> 
+                        </td>
+                        <td>
+                            <%- material.categoria %> 
+                        </td>
+                        <td>
+                            <%- material.peso %> 
+                        </td>
+                        <td>
+                            <%- material.estoque %> 
+                        </td>
+                        <td>
+                            <%- material.tipo %> 
+                        </td>
+                        <td>
+                            <a href="/editarMaterial/<%- material.id_material %>" class="btn btn-outline-info">EDITAR</a>
+                        </td>
+                        <td>
+                            <a href="/deleteMaterial/<%- material.id_material %>" class="btn btn-outline-danger">EXCLUIR</a>
+                        </td>
+                    </tr>  
+                <%}) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div style="text-align: right; margin-right: 5.6%; margin-bottom: 2%;">
+    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalExemplo">INSERIR</button>
+</div>
+  
+  <!-- Modal Inserir-->
+  <form action="/cadMaterial" method="POST">
+  <div  class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalExemplo">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cadastro">Cadastro de Material</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            
+                <div class="row">
+                    <div class="col-sm-2 form-group">
+                        <label for="codigo">Código</label>
+                        <input type="number" min="0" name="codigo" id="codigo" class="form-control">
+                    </div>
+                    <div class="col-sm form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" class="form-control">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label for="unidadeReferencia">Unidade de Referência</label>
+                        <select name="unidadeReferencia" id="unidadeReferencia" class="form-control">
+                            <option value="kg">KG</option>
+                            <option value="gr">GR</option>
+                            <option value="unidade">Unidade</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm form-group">
+                        <label for="categoria">Categoria</label>
+                        <input type="text" name="categoria" id="categoria" class="form-control">
+                    </div>
+                    <div class="col-sm form-group">
+                        <label for="peso">Peso</label>
+                        <input type="text" name="peso" id="peso" class="form-control">
+                    </div>
+                    <div class="col-sm form-group">
+                        <label for="estoque">Estoque</label>
+                        <input type="text" name="estoque" id="estoque" class="form-control">
+                    </div>
+                    <div class="col-sm form-group">
+                        <label for="tipo">Tipo</label>
+                        <input type="text" name="tipo" id="tipo" class="form-control">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-success">Inserir</button>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+</form>
+<%- include('partials/footer') %>

@@ -3,7 +3,7 @@ var knex = require('knex')({
     connection: {
       host : 'mysql669.umbler.com',
       user : 'adminferrotech',
-      password : 'Laboratorio2020',
+      password : 'adminferrotech',
       database :  'ferrotech'
     }
   });

@@ -1,0 +1,57 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+<% dados.forEach(dado => { %>
+<div class="card" >
+    <div class="card-body mr-4 ml-4 mt-4" style="height: 100%; margin-bottom: 11.7%;">
+        <div>
+            <h1 class="mb-4 text-center">Editar Material</h1>
+        </div>
+        <form action="/updateMaterial" method="POST">
+            <div class="col-sm-12 form-group">
+                <input type="hidden" name="id_material" id="codigo" class="form-control" value=<%- dado.id_material %> >
+            </div>
+            <div class="row">
+                <div class="col-sm-2 form-group">
+                    <label for="codigo">Código</label>
+                    <input type="text" min="0" name="codigo" id="codigo" class="form-control" value=<%- dado.codigo %> >
+                </div>
+                <div class="col-sm form-group">
+                    <label for="nome_material">Nome</label>
+                    <input type="text" name="nome_material" id="nome_material" class="form-control" value=<%- dado.nome_material %>>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="unidadeReferencia">Unidade de Referência</label>
+                    <select name="unidadeReferencia" id="unidadeReferencia" class="form-control" value=<%- dado.unidade_referencia %>>
+                        <option value="kg">KG</option>
+                        <option value="gr">GR</option>
+                        <option value="unidade">Unidade</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm form-group">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" name="categoria" id="categoria" class="form-control" value=<%- dado.categoria %>>   
+                </div>
+                <div class="col-sm form-group">
+                    <label for="peso">Peso</label>
+                    <input type="text" name="peso" id="peso" class="form-control" value=<%- dado.peso %>>
+                </div>
+                <div class="col-sm form-group">
+                    <label for="estoque">Estoque</label>
+                    <input type="text" name="estoque" id="estoque" class="form-control" value=<%- dado.estoque %>>
+                </div>
+                <div class="col-sm form-group">
+                    <label for="tipo">Tipo</label>
+                    <input type="text" name="tipo" id="tipo" class="form-control" value=<%- dado.tipo %>>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-success" type="submit" name="enviarEditar" id="enviarEditar">EDITAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% }) %>
+<%- include('partials/footer') %>
