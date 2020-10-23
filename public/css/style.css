@@ -1,11 +1,4 @@
-.fonteBotao {
-    font-family: Arial;
-    color: white;
-    background-color: #FF6F00;
-    font-style: unset;
-    padding: 6px;
-    border-radius: 8px; 
-}
+
 
 .btn-outline-primary-login {
     color: #FF6F00;

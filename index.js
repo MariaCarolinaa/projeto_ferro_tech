@@ -49,7 +49,7 @@ app.post('/updateMaterial', (req, res) => {
         tipo
     }).where({id_material:id_material}).table('material').then((response)=>{
         console.log(response);
-        res.redirect('/editarMaterial/'+id_material);
+        res.redirect('/materiais');
     }).catch(err => {
         console.log(err);
         res.redirect('/editarMaterial/'+id_material);
@@ -112,13 +112,16 @@ app.post('/cadMaterial', (req, res) => {
     }).then(()=>{
         res.redirect('/materiais');
     }).catch(err => {
-        res.redirect("/materiais");
         alert("Não cadastrado");
     });
 })
 
 app.get('/perfil', (req, res) => {
     res.render('perfil');
+});
+
+app.get('/teste', (req, res) => {
+    res.render('teste');
 });
 
 app.get('/materiais', (req, res) => {
