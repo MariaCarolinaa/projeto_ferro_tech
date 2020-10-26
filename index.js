@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const knex = require('./database/connection');
-const { render } = require('ejs');
 
 //definindo quem redenriza o layout
 app.set('view engine', 'ejs');
@@ -24,46 +23,6 @@ app.get('/', (req, res) => {
         console.log(err);
     });
 });
-
-app.get('/editarMaterial/:id_material', (req, res) => {
-    var id_material = req.params.id_material;
-    knex.select(['id_material','codigo','nome_material', 'unidade_referencia', 'categoria', 'peso', 'estoque', 'tipo']).table('material').where({"id_material":id_material}).then(response => {
-        res.render('editarMaterial', {
-            dados: response
-        })    
-    })
-    .catch(err =>{
-        console.log(err);
-    });
-})
-
-app.post('/updateMaterial', (req, res) => {
-    var {id_material, codigo, nome_material, unidadeReferencia, categoria, peso, estoque, tipo} = req.body;
-    knex.update({
-        codigo,
-        nome_material,
-        unidade_referencia: unidadeReferencia,
-        categoria,
-        peso,
-        estoque,
-        tipo
-    }).where({id_material:id_material}).table('material').then((response)=>{
-        console.log(response);
-        res.redirect('/materiais');
-    }).catch(err => {
-        console.log(err);
-        res.redirect('/editarMaterial/'+id_material);
-    });
-})
-
-app.get('/deleteMaterial/:id_material', (req, res) => {
-    var {id_material} = req.params;
-    knex.delete().where({id_material:id_material}).table('material').then(()=> {
-        res.redirect('/materiais');
-    }).catch(err => {
-        res.redirect('/materiais');
-    })
-})
 
 app.post('/login', (req, res) => {
     var {login, senha} = req.body;
@@ -97,41 +56,12 @@ app.post('/cadUsuario', (req, res) => {
         res.redirect("/");
         alert("Não cadastrado");
     });
-});
 
-app.post('/cadMaterial', (req, res) => {
-    var {codigo, nome, unidadeReferencia, categoria, peso, estoque, tipo} = req.body;
-    knex("material").insert({
-        codigo,
-        nome_material: nome,
-        unidade_referencia: unidadeReferencia,
-        categoria,
-        peso,
-        estoque,
-        tipo
-    }).then(()=>{
-        res.redirect('/materiais');
-    }).catch(err => {
-        alert("Não cadastrado");
-    });
-})
+});
 
 app.get('/perfil', (req, res) => {
     res.render('perfil');
 });
-
-app.get('/teste', (req, res) => {
-    res.render('teste');
-});
-
-app.get('/materiais', (req, res) => {
-    knex.select('*').table('material').then(material => {
-        res.render('materiais', {materiais: material, err: false});
-    })
-    .catch(err =>{
-        console.log(err);
-    });
-})
 
 app.get('/cadastroCompraMateriais', (req, res) => {
     res.render('cadastroCompraMateriais');

@@ -10,7 +10,7 @@
     <div class="row">
         <div class="card" style="width: 40rem;">
             <div class="card-body">
-                <form>
+                <form action="carrinho" method="POST">
                     <div class="form-row" style="margin-top: 45px;">
                         <div class="form-group" style="margin-left: 26px;">
                             <label for="tipoMaterial">Tipo do Material</label>
@@ -47,9 +47,7 @@
                         </div>
                         <div class="form-group">
                             <br>
-                            <button type="button"
-                                class="btn btn-outline-success mt-2 tamanhoCamposCadastroMateriais">Enviar ao
-                                carrinho</button>
+                            <button type="button" onclick="adicionar()"class="btn btn-outline-success mt-2 tamanhoCamposCadastroMateriais">Enviar ao carrinho</button>
                         </div>
                     </div>
                 </form>
@@ -60,28 +58,36 @@
             <div class="card" style="float: right; width: 25rem;">
                 <ul class="list-group list-group-flush">
                     <div class="card-header text-center">
-                        <i class="material-icons">
-                            shopping_cart
-                        </i>
-
-                        Carrinho
-                    </div>
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Cras justo odio</li>
-
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-cart-plus-fill float-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM4 14a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm7 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                          </svg>
+                        <strong>Quantidade: </strong><span id="quant" class="">0</span>
+                        <div class="float-right"><strong>Total:</strong><span id="total" class=""> 0</span></div>
+                    </div> 
+                    <div id="car">
+                        
+                    </div>              
                 </ul>
             </div>
         </div>
 
     </div>
     <div class="text-center mt-5 mb-3">
-        <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary">Enviar</button>
-        <button type="reset" class="btn btn-outline-danger mr-4 ml-4">Limpar</button>
+        <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary">Login</button>
+        <button type="reset" class="btn btn-outline-danger mr-4 ml-4" onclick="limpar()">Limpar</button>
         <a href="" class="btn btn-outline-secondary">Voltar</a>
     </div>
 </div>
+<%- include('partials/modalDeslogado') %>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+</script>
+<%- include('partials/car') %>
 
 <%- include('partials/footer') %>
