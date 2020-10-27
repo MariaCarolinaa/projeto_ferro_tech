@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand fonteLogo" href="home.html">Ferro-Tech</a>
+  <a class="navbar-brand fonteLogo" href="/">Ferro-Tech</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,14 +12,42 @@
                   Cadastrar
               </a>
               <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item bg-dark text-white" href="cadastroCompraMateriais">Compras</a>
-                  <a class="dropdown-item bg-dark text-white" href="cadastroVendaMateriais">Vendas</a>
+                  <a class="dropdown-item bg-dark text-white" href="/cadastroCompraMateriais">Compras</a>
+                  <a class="dropdown-item bg-dark text-white" href="/cadastroVendaMateriais">Vendas</a>
               </div>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">Lista de Materiais</a>
+              <a class="nav-link" href="/materiais">Lista de Materiais</a>
           </li>
       </ul>
   </div>
   <i class="fonteBotao" type="submit" data-toggle="modal" data-target="#loginCadastro">Cadastrar/Login</i>
 </nav>
+
+<div class="modal fade" id="loginCadastro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login/Cadastro Ferro-Tech</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/login" method="POST">
+                    <div class="form-group">
+
+                        <label for="exampleInputEmail1">Login</label>
+                        <input type="text" class="form-control" id="login" name="login" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha">
+                    </div>
+                    <a class="btn btn-outline-dark" href="cadastroUsuario" role="button">Cadastrar-se</a>
+                    <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary" style="float: right">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

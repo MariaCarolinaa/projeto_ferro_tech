@@ -66,8 +66,47 @@
 
 .card4 {
     margin-left: 2% !important;
+    height: 90.5%;
 }
 
 .tamanhoCamposCadastroMateriais {
     width: 180px;
+}
+
+#car{
+    width: auto;
+    height:250px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+}
+#car::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+#car::-webkit-scrollbar {
+    width: 6px;
+    background: orange;
+    border-radius: 5px;
+}
+#car::-webkit-scrollbar-thumb {
+    background: orange;
+}
+
+#listMateriais{
+    width: auto;
+    height:569px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+}
+#listMateriais::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+#listMateriais::-webkit-scrollbar {
+    width: 6px;
+    background: orange;
+    border-radius: 5px;
+}
+#listMateriais::-webkit-scrollbar-thumb {
+    background: orange;
 }

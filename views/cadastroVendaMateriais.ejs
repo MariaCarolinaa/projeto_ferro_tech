@@ -1,0 +1,81 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+    <div class="container" style="margin-top: 5%;">
+        <div class="row">
+            <div class="col-sm">
+                <p class="text-center display-4 mb-5">Cadastro de Vendas</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card" style="width: 40rem;">
+                <div class="card-body">
+                    <form>
+                        <div class="form-row" style="margin-top: 45px;">
+                            <div class="form-group" style="margin-left: 26px;">
+                                <label for="tipoMaterial">Tipo do Material</label>
+                                <select class="form-control tamanhoCamposCadastroMateriais" name="tipoMateria"
+                                    id="tipoMaterial">
+                                    <option value="ferro">Ferro</option>
+                                    <option value="cobre">Cobre</option>
+                                    <option value="garrafas">Garrafas</option>
+                                </select>
+                            </div>
+                            <div class="form-group mr-1 ml-1">
+                                <label for="medidaReferencia">Medida de referência</label>
+                                <select class="form-control tamanhoCamposCadastroMateriais" name="medidaReferencia"
+                                    id="medidaReferencia">
+                                    <option value="medidaKg">Kg</option>
+                                    <option value="medidaGrama">Grama</option>
+                                    <option value="medidaUnidade">Unidade</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPeso">Peso</label>
+                                <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="inputPeso">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group" style="margin-left: 26px;">
+                                <label for="inputMediaPonderada">Media Ponderada</label>
+                                <input type="text" class="form-control tamanhoCamposCadastroMateriais"
+                                    id="inputMediaPonderada">
+                            </div>
+                            <div class="form-group mr-1 ml-1">
+                                <label for="totalPagar">Total a pagar</label>
+                                <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="totalPagar">
+                            </div>
+                            <div class="form-group">
+                                <br>
+                                <button type="button" onclick="adicionar()"class="btn btn-outline-success mt-2 tamanhoCamposCadastroMateriais">Enviar ao carrinho</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card" style="float: right; width: 25rem;">
+                    <ul class="list-group list-group-flush">
+                        <div class="card-header text-center">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-cart-plus-fill float-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM4 14a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm7 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                              </svg>
+                            <strong>Quantidade: </strong><span id="quant">0</span>
+                            <div class="float-right"><strong>Total:</strong><span id="total" class="ml-1"> 0</span></div>
+                        </div>
+                        <div id="car"></div>                
+                    </ul>
+                </div>
+            </div>
+    
+
+        </div>
+        <div class="text-center mt-5 mb-3">
+            <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary">Login</button>
+            <button type="reset" class="btn btn-outline-danger mr-4 ml-4" onclick="limpar()">Limpar</button>
+            <a href="" class="btn btn-outline-secondary">Voltar</a>
+        </div>
+    </div>
+<%- include('partials/car') %>
+<%- include('partials/footer') %>

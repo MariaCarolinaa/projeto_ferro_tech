@@ -61,47 +61,19 @@
             </div>
         </div>
         <div class="col">
-            <div class="card card4">
+            <div class="card card4 "id="listMateriais">
                 <ul class="list-group list-group-flush">
                     <div class="card-header">Lista de Materiais</div>
-                    <% materiais.forEach(material => {%>
-                        <li class="list-group-item"><%- material.nome_material %></li>
-                    <% });%>
+                        <div ><% materiais.forEach(material => {%>
+                            <li class="list-group-item"><%- material.nome_material %></li>
+                        <% });%>
+                        </div>  
                 </ul>
             </div>
-            <a type="button" class="btn btn-outline-secondary" style="float: right; margin-top: 3%;">Ver
-                Mais
-            </a>
         </div>
     </div>
 </div>
 <!-- Modal login/cadastro-->
-<div class="modal fade" id="loginCadastro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Login/Cadastro Ferro-Tech</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="/login" method="POST">
-                    <div class="form-group">
 
-                        <label for="exampleInputEmail1">Login</label>
-                        <input type="text" class="form-control" id="login" name="login" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="senha" name="senha">
-                    </div>
-                    <a class="btn btn-outline-dark" href="cadastroUsuario" role="button">Cadastrar-se</a>
-                    <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary" style="float: right">Login</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 <%- include('partials/footer') %>
 
