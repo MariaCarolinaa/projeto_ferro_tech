@@ -36,12 +36,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group" style="margin-left: 26px;">
-                                <label for="inputMediaPonderada">Media Ponderada</label>
-                                <input type="text" class="form-control tamanhoCamposCadastroMateriais"
-                                    id="inputMediaPonderada">
-                            </div>
-                            <div class="form-group mr-1 ml-1">
+                            <div class="form-group mr-4 ml-4">
                                 <label for="totalPagar">Total a pagar</label>
                                 <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="totalPagar">
                             </div>
@@ -69,13 +64,25 @@
                 </div>
             </div>
     
-
         </div>
         <div class="text-center mt-5 mb-3">
-            <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary">Login</button>
+            <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary" onclick="enviar()">Enviar</button>
             <button type="reset" class="btn btn-outline-danger mr-4 ml-4" onclick="limpar()">Limpar</button>
             <a href="" class="btn btn-outline-secondary">Voltar</a>
         </div>
     </div>
 <%- include('partials/car') %>
+<script>
+    function enviar(){
+        var url = "http://localhost:3636/cadastroVendas";
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+        xmlhttp.send(JSON.stringify(carrinho));
+    }
+
+</script>
+
+
 <%- include('partials/footer') %>
