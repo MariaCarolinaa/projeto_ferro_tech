@@ -34,8 +34,8 @@ class CompraController{
     }
 
     async delete(req, res){
-        const {id_compra} = req.body;
-        await Material.delete(id_compra);
+        const {cod_nota} = req.body;
+        await Compra.deleteNota(cod_nota);
         res.redirect('/compras');
     }
 

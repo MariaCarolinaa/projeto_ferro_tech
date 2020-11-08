@@ -26,6 +26,7 @@ router.get('/compras', CompraController.index);
 router.get('/compra/materiais/:id', CompraController.viewDetails);
 router.get('/compra/cadastro', CompraController.renderCompra);
 router.post('/compra/cadastro', CompraController.novaCompra);
+router.post('/compra/excluir', CompraController.delete);
 
 //vendas
 router.get('/vendas', VendaController.index);

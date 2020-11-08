@@ -12,7 +12,7 @@
                     <th scope="col">Cliente</th>
                     <th scope="col">Data</th>
                     <th scope="col">Total Pago</th>
-                    <th scope="col">Materiais</th>
+                    <!-- <th scope="col">Materiais</th> -->
                     <th scope="col">Editar</th> 
                     <th scope="col">Excluir</th>      
                   </tr>
@@ -25,14 +25,11 @@
                             <td><%- nota.data_nota %></td>
                             <td><%- nota.total %></td>
                             <td>
-                                <a href="/compra/materiais/<%- nota.cod_nota %>" class="btn btn-outline-info">DETALHES</a>
+                                <a href="" class="btn btn-outline-info">EDITAR</a>
                             </td>
                             <td>
-                                <a href="" class="btn btn-outline-warning">EDITAR</a>
-                            </td>
-                            <td>
-                                <form method="POST" action="">
-                                    <input type="hidden" name="id_material" value="">
+                                <form method="POST" action="/compra/excluir">
+                                    <input type="hidden" name="cod_nota" value="<%- nota.cod_nota %>">
                                     <button type="submit" class="btn btn-outline-danger">EXCLUIR</button>
                                 </form>
                             </td>

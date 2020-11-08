@@ -35,6 +35,18 @@ class Compra {
             console.log(err);
         }
     }
+
+    async deleteNota(id){
+        try{
+            await knex.transaction(async trx => {
+                await knex.delete().table('compra_material').where({'cod_nota': id}).transacting(trx);
+                await knex.delete().table('nota').where({'cod_nota': id}).transacting(trx);
+            }); 
+           
+        }catch(err){
+            return {msg: 'Erro ao atualizar', err};
+        }
+    }
 }
 
 module.exports = new Compra();
