@@ -1,10 +1,10 @@
 var knex = require('knex')({
     client: 'mysql2',
     connection: {
-      host : 'mysql669.umbler.com',
-      user : 'adminferrotech',
-      password : 'Laboratorio2020',
-      database :  'ferrotech'
+      host : 'localhost',
+      user : 'root',
+      password : '',
+      database : 'ferrotech2'
     }
   });
 

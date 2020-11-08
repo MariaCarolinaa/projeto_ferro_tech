@@ -1,0 +1,46 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+<div class="container mt-5 mb-5">
+    <div class="card">
+        <div class="card-header"><strong class="table-titles">Registro de Vendas</strong><a href="/venda/cadastro" class="btn btn-outline-success float-right">Nova Venda</a></div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Total Pago</th>
+                    <th scope="col">Materiais</th> 
+                    <th scope="col">Editar</th> 
+                    <th scope="col">Excluir</th>   
+                  </tr>
+                </thead>
+                <tbody>
+                    <% notas.forEach(nota=>{%>
+                        <tr class="align-center">
+                            <td><%- nota.numero_nota %></td>
+                            <td>Cliente Indefinido</td>
+                            <td><%- nota.data_nota %></td>
+                            <td><%- nota.total %></td>
+                            <td>
+                                <a href="" class="btn btn-outline-info">DETALHES</a>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-outline-warning">EDITAR</a>
+                            </td>
+                            <td>
+                                <form method="POST" action="">
+                                    <input type="hidden" name="id_material" value="">
+                                    <button type="submit" class="btn btn-outline-danger">EXCLUIR</button>
+                                </form>
+                            </td>
+                        </tr>  
+                    <%}) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer') %>

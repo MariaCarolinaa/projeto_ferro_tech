@@ -72,3 +72,50 @@
 .tamanhoCamposCadastroMateriais {
     width: 180px;
 }
+
+.scroll{
+    width: auto;
+    height:250px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+}
+.scroll::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+.scroll::-webkit-scrollbar {
+    width: 6px;
+    background: orange;
+    border-radius: 5px;
+}
+.scroll::-webkit-scrollbar-thumb {
+    background: orange;
+}
+
+#listMateriais{
+    width: auto;
+    height:569px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+}
+#listMateriais::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+#listMateriais::-webkit-scrollbar {
+    width: 6px;
+    background: orange;
+    border-radius: 5px;
+}
+#listMateriais::-webkit-scrollbar-thumb {
+    background: orange;
+}
+
+
+.lista-itens{
+    height: 25em;
+}
+
+.table-titles{
+    font-size: 20px;
+}

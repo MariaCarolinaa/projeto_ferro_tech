@@ -1,0 +1,110 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+
+<div class="container mt-5 mb-5">
+    <div class="card lista-itens">
+        <div class="card-header table-titles"><strong>Lista de Materiais</strong></div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Unidade de referência</th>
+                    <th scope="col">Estoque</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Alterar</th>
+                    <th scope="col">Excluir</th>   
+                </tr>
+                </thead>
+                <tbody>
+                    <% materiais.forEach(material=>{%>
+                        <tr>
+                            <td><%- material.codigo_material %></td>
+                            <td><%- material.nome_material %></td>
+                            <td><%- material.peso %></td>
+                            <td><%- material.unidade_referencia %></td>
+                            <td><%- material.estoque %></td>
+                            <td><%- material.tipo %> </td>
+                            <td><%- material.preco %> </td>
+                            <td>
+                                <a href="/materiais/editar/<%- material.id_material %>" class="btn btn-outline-info">EDITAR</a>
+                            </td>
+                            <td>
+                                <form method="POST" action="/materiais/excluir">
+                                    <input type="hidden" name="id_material" value="<%- material.id_material %>">
+                                    <button type="submit" class="btn btn-outline-danger">EXCLUIR</button>
+                                </form>
+                            </td>
+                        </tr>  
+                    <%}) %>
+                </tbody>
+            </table>
+        </div>
+        <div style="text-align: right; margin-right: 6.5%; margin-bottom: 2%;">
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalExemplo">INSERIR</button>
+        </div>
+    </div>
+</div>
+  <!-- Modal Inserir-->
+<form  method="POST" action="/materiais/cadastro">
+    <div  class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalExemplo">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cadastro">Cadastro de Material</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>   
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <label for="codigo">Código</label>
+                            <input type="number" min="0" name="codigo_material" id="codigo" class="form-control">
+                        </div>
+                        <div class="col-sm form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" name="nome_material" id="nome" class="form-control">
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <label for="estoque">Estoque</label>
+                            <input type="number" min="0" name="estoque" id="estoque" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm form-group">
+                            <label for="peso">Peso</label>
+                            <input type="number" min="0" name="peso" id="peso" class="form-control">
+                        </div>
+                        <div class="col-sm form-group">
+                            <label for="tipo">Tipo</label>
+                            <input type="text" name="tipo" id="tipo" class="form-control">
+                        </div>
+                        <div class="col-sm form-group">
+                            <label for="unidadeReferencia">Unidade de Referência</label>
+                            <select name="unidade_referencia" id="unidadeReferencia" class="form-control">
+                                <option value="kg">KG</option>
+                                <option value="gr">GR</option>
+                                <option value="unidade">Unidade</option>
+                            </select>
+                        </div>
+                        <div class="col-sm form-group">
+                            <label for="preco">Preço</label>
+                            <input type="text" name="preco" id="preco" class="form-control">
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-success">Inserir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include('partials/footer') %>
