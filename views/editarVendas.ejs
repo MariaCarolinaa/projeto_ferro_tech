@@ -7,16 +7,16 @@
 <div class="container" style="margin-top: 5%;">
     <div class="row">
         <div class="col-sm">
-            <p class="text-center display-4 mb-5">Cadastro de Compras de Materiais</p>
+            <p class="text-center display-4 mb-5">Cadastro de Vendas de Materiais</p>
             <span><%- erros %></span>
         </div>
     </div>
     <div class="row">
         <div class="card mb-3" style="width: 100rem; align-items: center;">
             <div class="card-body">
-                <form action="/compra/editar" method="POST">
+                <form action="/venda/editar" method="POST">
                     <div class="col-sm-12 form-group">
-                        <input type="hidden" name="id_compra" id="codigo" class="form-control" value=<%- dado.id_compra %> >
+                        <input type="hidden" name="id_venda" id="codigo" class="form-control" value=<%- dado.id_venda %> >
                         <input type="hidden" name="cod_nota" id="cod_nota" class="form-control" value=<%- dado.cod_nota %> >
                     </div>
                     <div class="form-row mt-5">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="text-center mt-5 mb-3">
                         <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary">Enviar</button>
-                        <a href="/compras" class="btn btn-outline-secondary">Voltar</a>
+                        <a href="/vendas" class="btn btn-outline-secondary">Voltar</a>
                     </div>
                 </form>
             </div>

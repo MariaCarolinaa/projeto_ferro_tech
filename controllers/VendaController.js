@@ -19,6 +19,13 @@ class VendaController{
         res.render('../views/cadastroVendaMateriais', {materiais: materiais});
     }
 
+    async renderEdit(req, res){
+        const {id} = req.params;
+        const dados = await Venda.findById(id);
+        const materiais = await Material.findTypeMaterials();
+        res.render('../views/editarVendas', {dados: dados,materiais: materiais});
+    }
+
     async novaVenda(req, res){
         const materiais = req.body; 
         let totalPagar = 0;
@@ -33,6 +40,26 @@ class VendaController{
         res.render('../views/vendas', {notas: notas});
     }
 
+    async update(req, res){
+        const {id_venda, tipo_material, preco, medida_referencia, peso, total, cod_nota} = req.body;
+
+        const dados = {
+            tipo_material,
+            preco,
+            medida_referencia,
+            peso,
+            total,
+            cod_nota
+        }
+        await Venda.update(dados, id_venda);
+        res.redirect('/vendas');
+    }
+
+    async delete(req, res){
+        const {cod_nota} = req.body;
+        await Venda.deleteNota(cod_nota);
+        res.redirect('/vendas');
+    }
 }
 
 module.exports = new VendaController();

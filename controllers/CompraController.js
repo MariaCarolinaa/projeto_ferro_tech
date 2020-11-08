@@ -41,14 +41,15 @@ class CompraController{
     }
 
     async update(req, res){
-        const {id_compra, tipo_material, preco, medida_referencia, peso, total} = req.body;
+        const {id_compra, tipo_material, preco, medida_referencia, peso, total, cod_nota} = req.body;
 
         const dados = {
             tipo_material,
             preco,
             medida_referencia,
             peso,
-            total
+            total,
+            cod_nota
         }
         await Compra.update(dados, id_compra);
         res.redirect('/compras');

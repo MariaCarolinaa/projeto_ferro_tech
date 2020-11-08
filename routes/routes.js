@@ -34,6 +34,9 @@ router.post('/compra/editar', CompraController.update);
 router.get('/vendas', VendaController.index);
 router.get('/venda/materiais/:id', VendaController.viewDetails);
 router.get('/venda/cadastro', VendaController.renderVenda);
+router.get('/venda/editar/:id', VendaController.renderEdit);
+router.post('/venda/editar', VendaController.update);
+router.post('/venda/excluir', VendaController.delete);
 router.post('/venda/cadastro', VendaController.novaVenda);
 
 module.exports = router;

@@ -2,8 +2,8 @@
 <%- include('partials/navbar') %>
 
 
-<div class="container mt-5 mb-5">
-    <div class="card lista-itens">
+<div class="container mt-5 mb-5 ">
+    <div class="card lista-itens border-light">
         <div class="card-header table-titles"><strong>Lista de Materiais</strong></div>
         <div class="card-body">
             <table class="table">
@@ -40,13 +40,16 @@
                                 </form>
                             </td>
                         </tr>  
-                    <%}) %>
+                        <%}) %>
                 </tbody>
+                <div style="text-align: right; margin-right: 6.5%; margin-bottom: 2%;">
+                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalExemplo">INSERIR</button>
+                </div>
+                
             </table>
+           
         </div>
-        <div style="text-align: right; margin-right: 6.5%; margin-bottom: 2%;">
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modalExemplo">INSERIR</button>
-        </div>
+        
     </div>
 </div>
   <!-- Modal Inserir-->
@@ -107,4 +110,6 @@
         </div>
     </div>
 </form>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <%- include('partials/footer') %>
