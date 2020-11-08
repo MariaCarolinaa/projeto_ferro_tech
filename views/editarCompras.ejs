@@ -1,31 +1,73 @@
 <%- include('partials/head') %>
 <%- include('partials/navbar') %>
-<div class="container mt-5 mb-5">
-    <div class="card">
-        <div class="card-header"><a href="/compras">Voltar</a> Lista de materiais</div>
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Produtos</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col">Peso</th>
-                    <th scope="col">Total</th>   
-                  </tr>
-                </thead>
-                <tbody>
-                    <% materiais.forEach(material=>{%>
-                        <tr>
-                            <td><%- material.tipo_material %></td>
-                            <td><%- material.preco %></td>
-                            <td><%- material.peso %><%- material.medida_referencia %></td>
-                            <td><%- material.total %></td>
-                        </tr>  
-                    <%}) %>
-                </tbody>
-            </table>
+
+<% let erros = '' %>
+
+<% dados.forEach(dado => { %>
+<div class="container" style="margin-top: 5%;">
+    <div class="row">
+        <div class="col-sm">
+            <p class="text-center display-4 mb-5">Cadastro de Compras de Materiais</p>
         </div>
     </div>
+    <div class="row">
+        <div class="card" style="width: 40rem;">
+            <div class="card-body">
+                <form action="/compra/editar" method="POST">
+                    <div class="col-sm-12 form-group">
+                        <input type="hidden" name="id_compra" id="codigo" class="form-control" value=<%- dado.id_compra %> >
+                    </div>
+                    <div class="form-row mt-5">
+                        <div class="form-group ml-3">
+                            <label for="tipoMaterial">Tipo do Material</label>
+                            <select class="form-control tamanhoCamposCadastroMateriais" name="tipoMaterial" id="tipoMaterial" value=<%- dado.tipo_material %>>
+                                <% materiais.forEach(material => { %>
+                                    <option value="<%- material.tipo %>"><%- material.tipo %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="form-group ml-3">
+                            <label for="preco">Preço</label>
+                            <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="preco" onchange="calcTotal()"  value=<%- dado.preco %>>
+                        </div>
+                        <div class="form-group ml-3">
+                            <label for="medidaReferencia">Medida de referência</label>
+                            <select class="form-control tamanhoCamposCadastroMateriais" name="medidaReferencia"
+                                id="medidaReferencia"  value=<%- dado.medida_referencia %>>
+                                <option value="Kg">Kg</option>
+                                <option value="Gr">Grama</option>
+                                <option value="unidade">Unidade</option>
+                            </select>
+                        </div>          
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group ml-3">
+                            <label for="inputPesoOuQuantidade">Peso</label>
+                            <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="inputPeso" onchange="calcTotal()" value=<%- dado.peso %>>
+                        </div>
+                        <div class="form-group ml-3">
+                            <label for="totalPagar">Total a pagar</label>
+                            <input type="text" class="form-control tamanhoCamposCadastroMateriais disabled" id="totalPagar" disabled value=<%- dado.total %>>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <div class="text-center mt-5 mb-3">
+        <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary">Enviar</button>
+        <a href="/compras" class="btn btn-outline-secondary">Voltar</a>
+    </div>
 </div>
+<script>
+    function calcTotal(){
+        let preco = document.getElementById('preco').value;
+        let peso = document.getElementById('inputPeso').value;
+        let total = document.getElementById('totalPagar');
 
+        let calc = Number(preco) * Number(peso);
+
+        total.value = calc;
+    }
+</script>
+<% }) %>
 <%- include('partials/footer') %>

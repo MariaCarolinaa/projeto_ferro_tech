@@ -36,6 +36,27 @@ class Compra {
         }
     }
 
+    async update(compra_material, id_compra){
+        try{
+            const {...dados} = compra_material;
+            await knex.transaction(async trx => {
+                await knex.update(dados).table('compra_material').where({'id_compra': id_compra}).transacting(trx);
+            }); 
+        }catch(err){
+            console.log(err);
+            return {msg: 'Erro ao atualizar', err};
+        }
+    }
+
+    async findById(id){
+        try{
+            const compra = knex.select('*').from('compra_material').where({cod_nota : id});
+            return compra;
+        }catch(err){
+            return {msg: 'Erro ao buscar compras', err};
+        }
+    }
+
     async deleteNota(id){
         try{
             await knex.transaction(async trx => {

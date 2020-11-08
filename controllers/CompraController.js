@@ -14,6 +14,13 @@ class CompraController{
         res.render('../views/comprasDetails', {materiais: materiais});
     }
 
+    async renderEdit(req, res){
+        const {id} = req.params;
+        const dados = await Compra.findById(id);
+        const materiais = await Material.findTypeMaterials();
+        res.render('../views/editarCompras', {dados: dados,materiais: materiais});
+    }
+
     async renderCompra(req, res){
         const materiais = await Material.findTypeMaterials();
         res.render('../views/cadastroCompraMateriais', {materiais: materiais});
@@ -31,6 +38,20 @@ class CompraController{
         await Compra.createNota(materiais, totalPagar);
         const notas = await Compra.findNotas();
         res.render('../views/compras');
+    }
+
+    async update(req, res){
+        const {id_compra, tipo_material, preco, medida_referencia, peso, total} = req.body;
+
+        const dados = {
+            tipo_material,
+            preco,
+            medida_referencia,
+            peso,
+            total
+        }
+        await Compra.update(dados, id_compra);
+        res.redirect('/compras');
     }
 
     async delete(req, res){

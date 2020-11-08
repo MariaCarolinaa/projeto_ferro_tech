@@ -24,9 +24,11 @@ router.post('/materiais/excluir', MaterialController.delete);
 //compras
 router.get('/compras', CompraController.index);
 router.get('/compra/materiais/:id', CompraController.viewDetails);
+router.get('/compra/editar/:id', CompraController.renderEdit);
 router.get('/compra/cadastro', CompraController.renderCompra);
 router.post('/compra/cadastro', CompraController.novaCompra);
 router.post('/compra/excluir', CompraController.delete);
+router.post('/compra/editar', CompraController.update);
 
 //vendas
 router.get('/vendas', VendaController.index);
