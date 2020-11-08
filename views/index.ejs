@@ -19,7 +19,7 @@
                         5. Otimização de processos, aumentando a produtividade;
                         <br>
                         Aqui você tem acesso a essas vantagens e mais!
-                    </p>
+                    </p> 
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-right p-0">
-                    <a type="button" href="cadastroCompraMateriais"
+                    <a type="button" href="/compra/cadastro"
                         class="btn btn-outline-secondary botaoVerMais">
                         Ver Mais
                     </a>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-right p-0">
-                    <a type="button" href="cadastroVendaMateriais"
+                    <a type="button" href="/venda/cadastro"
                         class="btn btn-outline-secondary botaoVerMais">
                         Ver Mais
                     </a>
@@ -64,10 +64,11 @@
             <div class="card card4 "id="listMateriais">
                 <ul class="list-group list-group-flush">
                     <div class="card-header">Lista de Materiais</div>
-                        <div ><% materiais.forEach(material => {%>
+                    <div>
+                        <% materiais.forEach(material => {%>
                             <li class="list-group-item"><%- material.nome_material %></li>
                         <% });%>
-                        </div>  
+                    </div>  
                 </ul>
             </div>
         </div>

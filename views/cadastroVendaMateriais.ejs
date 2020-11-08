@@ -11,44 +11,45 @@
             <div class="card" style="width: 40rem;">
                 <div class="card-body">
                     <form>
-                        <div class="form-row" style="margin-top: 45px;">
-                            <div class="form-group" style="margin-left: 26px;">
+                        <div class="form-row mt-5">
+                            <div class="form-group ml-3">
                                 <label for="tipoMaterial">Tipo do Material</label>
-                                <select class="form-control tamanhoCamposCadastroMateriais" name="tipoMateria"
-                                    id="tipoMaterial">
-                                    <option value="ferro">Ferro</option>
-                                    <option value="cobre">Cobre</option>
-                                    <option value="garrafas">Garrafas</option>
+                                <select class="form-control tamanhoCamposCadastroMateriais" name="tipoMaterial" id="tipoMaterial">
+                                    <% materiais.forEach(material => { %>
+                                        <option value="<%-material.tipo%>"><%- material.tipo %></option>
+                                    <% }) %>
                                 </select>
                             </div>
-                            <div class="form-group mr-1 ml-1">
+                            <div class="form-group ml-3">
+                                <label for="preco">Preço</label>
+                                <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="preco" onchange="calcTotal()">
+                            </div>
+                            <div class="form-group ml-3">
                                 <label for="medidaReferencia">Medida de referência</label>
                                 <select class="form-control tamanhoCamposCadastroMateriais" name="medidaReferencia"
                                     id="medidaReferencia">
-                                    <option value="medidaKg">Kg</option>
-                                    <option value="medidaGrama">Grama</option>
-                                    <option value="medidaUnidade">Unidade</option>
+                                    <option value="Kg">Kg</option>
+                                    <option value="Gg">Grama</option>
+                                    <option value="unidade">Unidade</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPeso">Peso</label>
-                                <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="inputPeso">
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group mr-4 ml-4">
-                                <label for="totalPagar">Total a pagar</label>
-                                <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="totalPagar">
+                            <div class="form-group ml-3">
+                                <label for="inputPeso">Peso</label>
+                                <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="inputPeso" onchange="calcTotal()">
                             </div>
-                            <div class="form-group">
-                                <br>
-                                <button type="button" onclick="adicionar()"class="btn btn-outline-success mt-2 tamanhoCamposCadastroMateriais">Enviar ao carrinho</button>
+                            <div class="form-group ml-3">
+                                <label for="totalPagar">Total a pagar</label>
+                                <input type="text" class="form-control tamanhoCamposCadastroMateriais" id="totalPagar" disabled>
+                            </div>
+                            <div class="form-group ml-3 mt-4">
+                                <button type="button" onclick="adicionar()" class="btn btn-outline-success mt-2 tamanhoCamposCadastroMateriais">Enviar ao carrinho</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-
             <div class="col">
                 <div class="card" style="float: right; width: 25rem;">
                     <ul class="list-group list-group-flush">
@@ -59,7 +60,9 @@
                             <strong>Quantidade: </strong><span id="quant">0</span>
                             <div class="float-right"><strong>Total:</strong><span id="total" class="ml-1"> 0</span></div>
                         </div>
-                        <div id="car"></div>                
+                        <div class="scroll" id="car">
+
+                        </div>                
                     </ul>
                 </div>
             </div>
@@ -68,21 +71,29 @@
         <div class="text-center mt-5 mb-3">
             <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary" onclick="enviar()">Enviar</button>
             <button type="reset" class="btn btn-outline-danger mr-4 ml-4" onclick="limpar()">Limpar</button>
-            <a href="" class="btn btn-outline-secondary">Voltar</a>
+            <a href="/" class="btn btn-outline-secondary">Voltar</a>
         </div>
     </div>
 <%- include('partials/car') %>
-<script>
-    function enviar(){
-        var url = "http://localhost:3636/cadastroVendas";
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", url);
-        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
-        xmlhttp.send(JSON.stringify(carrinho));
-    }
+    <script>
+        function calcTotal(){
+            let preco = document.getElementById('preco').value;
+            let peso = document.getElementById('inputPeso').value;
+            let total = document.getElementById('totalPagar');
 
-</script>
+            let calc = Number(preco) * Number(peso);
 
+            total.value = calc;
+        }
+        function enviar(){
+            var url = "http://localhost:3636/venda/cadastro";
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", url);
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlhttp.setRequestHeader('Access-Control-Allow-Origin', '*');
+            xmlhttp.send(JSON.stringify(carrinho));
+        }
+
+    </script>
 
 <%- include('partials/footer') %>

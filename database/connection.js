@@ -4,7 +4,7 @@ var knex = require('knex')({
       host : 'localhost',
       user : 'root',
       password : '',
-      database : 'ferrotech'
+      database : 'ferrotech2'
     }
   });
 

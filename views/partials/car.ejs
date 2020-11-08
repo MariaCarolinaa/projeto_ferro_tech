@@ -5,22 +5,23 @@
 
     function adicionar(){
         data[0] = document.getElementById('tipoMaterial').value;
-        data[1] = document.getElementById('medidaReferencia').value;
-        data[2] = document.getElementById('inputPeso').value;
-        data[3] = document.getElementById('totalPagar').value;
-        
-        carrinho.push({
-            id_venda: carrinho.length + 1,
-            tipo_material: data[0],
-            medida_referencia: data[1],
-            peso: data[2],
-            total: data[3],
-        });
+        data[1] = document.getElementById('preco').value;
+        data[2] = document.getElementById('medidaReferencia').value;
+        data[3] = document.getElementById('inputPeso').value;
+        data[4] = document.getElementById('totalPagar').value;
 
+        carrinho.push({
+            id: carrinho.length + 1,
+            tipo_material: data[0],
+            preco: data[1],
+            medida_referencia: data[2],
+            peso: data[3],
+            total: data[4]
+        });
+        console.log(carrinho);
         renderizar();
         setQuant();
         somaPreco();
-
     }
 
     function renderizar(){
@@ -41,7 +42,7 @@
 
 
         for(i = 0; i < carrinho.length; i ++){
-            div1.innerHTML = `Material: ${carrinho[i].tipo}`;
+            div1.innerHTML = `Material: ${carrinho[i].tipo_material}`;
             div2.innerHTML = `Preco: ${carrinho[i].total}`;
 
             li.setAttribute('id', `item${carrinho[i].id}`);
@@ -76,6 +77,7 @@
             totalPreco = totalPreco + Number(car.total);
         });
 
+
         let elem = document.getElementById('total');
         elem.innerText = totalPreco;
     }
@@ -90,5 +92,4 @@
         setQuant();
         somaPreco();
     }
-
 </script>

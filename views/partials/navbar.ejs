@@ -1,27 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand fonteLogo" href="/">Ferro-Tech</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav fonteMenu">
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Cadastrar
-              </a>
-              <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item bg-dark text-white" href="/cadastroCompraMateriais">Compras</a>
-                  <a class="dropdown-item bg-dark text-white" href="/cadastroVendaMateriais">Vendas</a>
-              </div>
+    <a class="navbar-brand fonteLogo" href="/">Ferro-Tech</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav fonteMenu">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/cadastro" id="navbarDropdownMenuLink" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cadastrar
+                </a>
+                <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item bg-dark text-white" href="/compra/cadastro">Compras</a>
+                    <a class="dropdown-item bg-dark text-white" href="/venda/cadastro">Vendas</a>
+                </div>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" href="/materiais">Lista de Materiais</a>
-          </li>
-      </ul>
-  </div>
-  <i class="fonteBotao" type="submit" data-toggle="modal" data-target="#loginCadastro">Cadastrar/Login</i>
+            <li class="nav-item">
+                <a class="nav-link" href="/materiais">Lista de Materiais</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/compras">Compras</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/vendas">Vendas</a>
+            </li>
+        </ul>
+    </div>
+    <i class="fonteBotao" type="submit" data-toggle="modal" data-target="#loginCadastro">Cadastrar/Login</i>
 </nav>
 
 <div class="modal fade" id="loginCadastro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -36,7 +42,6 @@
             <div class="modal-body">
                 <form action="/login" method="POST">
                     <div class="form-group">
-
                         <label for="exampleInputEmail1">Login</label>
                         <input type="text" class="form-control" id="login" name="login" aria-describedby="emailHelp">
                     </div>
