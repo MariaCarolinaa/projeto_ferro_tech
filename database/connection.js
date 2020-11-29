@@ -3,8 +3,8 @@ var knex = require('knex')({
     connection: {
       host : 'localhost',
       user : 'root',
-      password : '',
-      database : 'ferrotech2'
+      password : 'root',
+      database : 'ferrotech'
     }
   });
 
