@@ -31,6 +31,7 @@ class User{
                 cd_tipo_usuario:1
             }).table('usuario');
         }catch(err){
+            console.log(err);
             return {msg: 'Erro ao cadastrar usuario', err}
         }
     }

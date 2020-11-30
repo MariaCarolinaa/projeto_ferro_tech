@@ -12,7 +12,7 @@ router.get('/', HomeController.index);
 //usuario
 router.get('/cadastroUsuario', UserController.register);
 router.post('/login', UserController.login);
-router.post('/cadastro/usuario', UserController.new);
+router.post('/cadastro/usuario', UserController.novo);
 
 //materiais
 router.get('/materiais', MaterialController.renderIndex);

@@ -21,7 +21,7 @@ class UserController{
         }
     }
     
-    async new(req, res) {
+    async novo(req, res) {
         const {login, senha} = req.body;
         const dados = {
             login,
