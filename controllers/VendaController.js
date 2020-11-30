@@ -1,29 +1,30 @@
 const Venda = require("../models/Venda");
 const Material = require("../models/Material");
+const localStorage = require('localStorage');
 
 class VendaController{
 
     async index(req, res){
         const notas = await Venda.findNotas();
-        res.render('../views/vendas', {notas: notas});
+        res.render('../views/vendas', {login: localStorage.getItem('login'),notas: notas});
     }
 
     async viewDetails(req, res){
         const {id} = req.params;
         const materiais = await Venda.findMaterials(id);
-        res.render('../views/vendaDetails', {materiais: materiais});
+        res.render('../views/vendaDetails', {login: localStorage.getItem('login'),materiais: materiais});
     }
 
     async renderVenda(req, res){
         const materiais = await Material.findTypeMaterials();
-        res.render('../views/cadastroVendaMateriais', {materiais: materiais});
+        res.render('../views/cadastroVendaMateriais', {login: localStorage.getItem('login'),materiais: materiais});
     }
 
     async renderEdit(req, res){
         const {id} = req.params;
         const dados = await Venda.findById(id);
         const materiais = await Material.findTypeMaterials();
-        res.render('../views/editarVendas', {dados: dados,materiais: materiais});
+        res.render('../views/editarVendas', {login: localStorage.getItem('login'),dados: dados,materiais: materiais});
     }
 
     async novaVenda(req, res){
@@ -37,7 +38,7 @@ class VendaController{
         
         await Venda.createNota(materiais, totalPagar);
 
-        res.render('../views/vendas', {notas: notas});
+        res.render('../views/vendas', {login: localStorage.getItem('login'),notas: notas});
     }
 
     async update(req, res){

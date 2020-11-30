@@ -1,16 +1,17 @@
 const Material = require("../models/Material");
+const localStorage = require('localStorage');
 
 class MaterialController {
 
     async renderIndex(req, res){
         const materiais = await Material.findAll();
-        res.render('../views/materiais', {materiais: materiais});
+        res.render('../views/materiais', {login: localStorage.getItem('login'),materiais: materiais});
     }
 
     async renderEdit(req, res){
         const {id} = req.params;
         const dados = await Material.findById(id);
-        res.render('../views/editarMaterial', {dados: dados});
+        res.render('../views/editarMaterial', {login: localStorage.getItem('login'),dados: dados});
     }
 
 

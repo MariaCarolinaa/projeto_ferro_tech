@@ -1,36 +1,38 @@
-const User = require('../models/User');
+const User = require("../models/User");
+const Material = require('../models/Material');
+const localStorage = require('localStorage');
 
-class UserController{
+class UserController {
+  register(req, res) {
+    res.render("../views/cadastroUsuario");
+  }
 
-    register(req, res){
-        res.render('../views/cadastroUsuario');
+  async login(req, res, next) {
+    const { login, senha } = req.body;
+    const result = await User.findUser(login);
+    if (result.length > 0) {
+      if (result[0].senha == senha) {
+        localStorage.setItem('login', login);
+        const materiais = await Material.findAll();
+        res.render("../views/index.ejs",{login, materiais});
+      } else {
+        res.send({ mensagem: "login e senha invalidos" });
+      }
+    } else {
+      res.send({ mensagem: "login e senha invalidos" });
     }
+  }
 
-    async login(req, res){
-        const {login, senha} = req.body;
-        const result = await User.findUser(login);
-        if(result.length > 0){
-            if(result[0].senha == senha){
-                res.redirect('/');
-                localStorage.setItem(login, login);  
-            }else{
-                res.redirect('/');
-            }
-        }else{
-            res.redirect('/');
-        }
-    }
-    
-    async novo(req, res) {
-        const {login, senha} = req.body;
-        const dados = {
-            login,
-            senha
-        }
-        
-        await User.insert(dados);
-        res.redirect('/');
-    }
+  async novo(req, res) {
+    const { login, senha } = req.body;
+    const dados = {
+      login,
+      senha,
+    };
+
+    await User.insert(dados);
+    res.redirect("/");
+  }
 }
 
 module.exports = new UserController();

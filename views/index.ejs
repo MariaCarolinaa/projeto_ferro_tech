@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="card card1">
+
                 <img src="imgs/gif_manager.gif" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Vantagens de utilizar um software de gestão</h5>
@@ -49,11 +50,14 @@
             <div class="card card4 "id="listMateriais">
                 <ul class="list-group list-group-flush">
                     <div class="card-header">Lista de Materiais</div>
+                    
                     <div>
+                        
                         <% materiais.forEach(material => {%>
                             <li class="list-group-item"><%- material.nome_material %></li>
                         <% });%>
-                    </div>  
+                    </div> 
+
                 </ul>
             </div>
         </div>

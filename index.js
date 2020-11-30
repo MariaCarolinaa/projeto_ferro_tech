@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const router = require('./routes/routes')
+
 //definindo quem redenriza o layout
 app.set('view engine', 'ejs');
 
@@ -14,6 +15,7 @@ app.use(express.static('public'));
 
 //porta de inicio do servidor
 const port = process.env.PORT || 3636;
+
 
 //rotas
 app.use('/', router);
