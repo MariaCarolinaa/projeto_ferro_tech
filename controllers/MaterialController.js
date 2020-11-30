@@ -12,11 +12,6 @@ class MaterialController {
         const dados = await Material.findById(id);
         res.render('../views/editarMaterial', {dados: dados});
     }
-    
-    async renderVenda(req, res){
-        const materiais = await Material.findAll();
-        res.render('../views/cadastroVendaMateriais', {materiais: materiais});
-    }
 
 
     async new(req, res){

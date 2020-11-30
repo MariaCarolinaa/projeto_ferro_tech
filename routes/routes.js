@@ -5,7 +5,6 @@ const HomeController = require('../controllers/HomeController');
 const UserController = require('../controllers/UserController');
 const MaterialController = require('../controllers/MaterialController');
 const CompraController = require('../controllers/CompraController');
-const VendaController = require('../controllers/VendaController');
 
 //pagina inicial
 router.get('/', HomeController.index);
@@ -13,6 +12,7 @@ router.get('/', HomeController.index);
 //usuario
 router.get('/cadastroUsuario', UserController.register);
 router.post('/login', UserController.login);
+router.post('/cadastro/usuario', UserController.new);
 
 //materiais
 router.get('/materiais', MaterialController.renderIndex);
@@ -29,14 +29,5 @@ router.get('/compra/cadastro', CompraController.renderCompra);
 router.post('/compra/cadastro', CompraController.novaCompra);
 router.post('/compra/excluir', CompraController.delete);
 router.post('/compra/editar', CompraController.update);
-
-//vendas
-router.get('/vendas', VendaController.index);
-router.get('/venda/materiais/:id', VendaController.viewDetails);
-router.get('/venda/cadastro', VendaController.renderVenda);
-router.get('/venda/editar/:id', VendaController.renderEdit);
-router.post('/venda/editar', VendaController.update);
-router.post('/venda/excluir', VendaController.delete);
-router.post('/venda/cadastro', VendaController.novaVenda);
 
 module.exports = router;

@@ -4,7 +4,7 @@ class User{
 
     async findAll(){
         try{
-            const users = knex.select('*').table('users');
+            const users = knex.select('*').table('usuario');
             return users;
         }catch(err){
             return {msg: 'Erro ao buscar cliente', err};
@@ -13,16 +13,23 @@ class User{
 
     async findById(id){
         try{
-            const users = knex.select('*').table('users').where({'id_client': id});
+            const users = knex.select('*').table('usuario').where({'id_usuario': id});
             return users;
         }catch(err){
             return {msg: 'Erro ao buscar clientes', err};
         }
     }
 
-    async register(data){
+    async insert(data){
+        const {login, senha} = data;
+        console.log(data);
         try{
-            await knex.insert(data).table('usuario');
+            await knex.insert({
+                login,
+                senha,
+                ativo:'S',
+                cd_tipo_usuario:1
+            }).table('usuario');
         }catch(err){
             return {msg: 'Erro ao cadastrar usuario', err}
         }

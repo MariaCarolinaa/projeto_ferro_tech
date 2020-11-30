@@ -11,13 +11,25 @@ class UserController{
         const result = await User.findUser(login);
         if(result.length > 0){
             if(result[0].senha == senha){
-                res.redirect('/perfil');
+                res.redirect('/');
+                localStorage.setItem(login, login);  
             }else{
                 res.redirect('/');
             }
         }else{
-            res.redirect('/cadastro');
+            res.redirect('/');
         }
+    }
+    
+    async new(req, res) {
+        const {login, senha} = req.body;
+        const dados = {
+            login,
+            senha
+        }
+        
+        await User.insert(dados);
+        res.redirect('/');
     }
 }
 

@@ -37,8 +37,7 @@ class Compra {
     }
 
     async update(compra_material, id_compra){
-        console.table(compra_material);
-        console.log(id_compra)
+        let totalPagar = 0;
         try{
             const {tipo_material, preco, medida_referencia, peso, total, cod_nota} = compra_material;
             await knex.transaction(async trx => {
@@ -49,6 +48,9 @@ class Compra {
                     peso,
                     total
                 }).table('compra_material').where({'id_compra': id_compra}).transacting(trx);
+
+                
+
                 await knex.update({
                     total
                 }).table('nota').where({'cod_nota': cod_nota}).transacting(trx);

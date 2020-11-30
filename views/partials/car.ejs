@@ -10,18 +10,23 @@
         data[3] = document.getElementById('inputPeso').value;
         data[4] = document.getElementById('totalPagar').value;
 
-        carrinho.push({
-            id: carrinho.length + 1,
-            tipo_material: data[0],
-            preco: data[1],
-            medida_referencia: data[2],
-            peso: data[3],
-            total: data[4]
-        });
+        if(data[1] == '') {
+            alert("Preencha o campo preço")
+        } else {
+                carrinho.push({
+                id: carrinho.length + 1,
+                tipo_material: data[0],
+                preco: data[1],
+                medida_referencia: data[2],
+                peso: data[3],
+                total: data[4]
+            });
+
         console.log(carrinho);
         renderizar();
         setQuant();
         somaPreco();
+        }
     }
 
     function renderizar(){

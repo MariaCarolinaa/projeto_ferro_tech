@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand fonteLogo" href="/">Ferro-Tech</a>
+    <a class="navbar-brand" href="#">
+        <img src="https://raw.githubusercontent.com/MariaCarolinaa/projeto_ferro_tech/main/public/imgs/logo-vetorizado.png" height="60px" width="130px">
+
+      </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -13,7 +16,6 @@
                 </a>
                 <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item bg-dark text-white" href="/compra/cadastro">Compras</a>
-                    <a class="dropdown-item bg-dark text-white" href="/venda/cadastro">Vendas</a>
                 </div>
           </li>
             <li class="nav-item">
@@ -21,9 +23,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/compras">Compras</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/vendas">Vendas</a>
             </li>
         </ul>
     </div>
@@ -47,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="senha" name="senha">
+                        <input type="password" class="form-control" id="senha" name="senha" maxlength="6">
                     </div>
                     <a class="btn btn-outline-dark" href="cadastroUsuario" role="button">Cadastrar-se</a>
                     <button type="submit" class=" btn btn-outline-primary-login btn-outline-primary" style="float: right">Login</button>

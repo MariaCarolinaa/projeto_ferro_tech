@@ -5,67 +5,29 @@
 
         <div class="row">
             <div class="col-sm">
-                <p class="text-center display-4 mb-5">Cadastro de Clientes</p>
+                <p class="text-center display-4 mb-5">Cadastro de Usuário</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm">
-                <form>
+                <form method="POST" action="cadastro/usuario">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputEmail4">Nome Completo</label>
-                            <input type="input" class="form-control" id="inputEmail4"
-                                placeholder="Ex: Antonio Carlos Lima Santos">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <div class="form-group">
-                                <label for="sexo">Sexo</label>
-                                <select class="form-control" id="sexo">
-                                    <option>Feminino</option>
-                                    <option>Masculino</option>
-                                    <option>Outro</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="dataNascimento">Data de Nascimento</label>
-                            <input class="form-control" type="date" name="dataNascimento" id="dataNascimento">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label for="cep">CEP</label>
-                            <input class="form-control" type="text" name="cep" id="cep">
+                            <label for="login">Login</label>
+                            <input type="input" class="form-control" id="login"
+                                placeholder="Ex: Antonio" name="login">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="endereco">Endereço</label>
-                            <input class="form-control" type="text" name="endereco" id="endereco">
+                            <label for="senha">Senha</label>
+                            <input type="password" class="form-control" id="senha"
+                                 name="senha" maxlength="6">
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="numero-endereco">Número</label>
-                            <input class="form-control" type="text" name="numero-endereco" id="numero-endereco">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="municipio">Munícipio</label>
-                            <input class="form-control" type="text" name="municipio" id="municipio">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="bairro">Bairro</label>
-                            <input class="form-control" type="text" name="bairro" id="bairro">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="celularCliente">Celular</label>
-                            <input class="form-control" type="text" name="celularCliente" id="celularCliente">
-                        </div>
-                    </div>
-                    <div class="form-row row d-flex justify-content-center">
+                    <div class="form-row row d-flex justify-content-center col-md-12">
                         <div class="form-group col-auto-md-3 botoesCadastro">
-                            <a class="btn btn-outline-primary-login btn-outline-primary" href="/perfil"
-                                role="button">Cadastrar-se</a>
-                            <button type="submit" class="btn btn-outline-dark ml-4">Login</button>
+                            <a class="btn btn-outline-primary-login btn-outline-primary" href="/"
+                                role="button">Voltar</a>
+                            <button type="submit" class="btn btn-outline-dark ml-4">Cadastrar</button>
                         </div>
                     </div>
 

@@ -55,10 +55,6 @@ class Material {
                 await knex.update(tipo_material).table('tipo_material').where({'id_tipo': id_material}).transacting(trx);
             }); 
         }catch(err){
-
-            if(){
-                
-            }
             console.log(err);
             return {msg: 'Erro ao atualizar', err};
         }
