@@ -13,6 +13,7 @@ router.get('/', HomeController.index);
 router.get('/cadastroUsuario', UserController.register);
 router.post('/login', UserController.login);
 router.post('/cadastro/usuario', UserController.novo);
+router.post('/logout', UserController.logout);
 
 //materiais
 router.get('/materiais', MaterialController.renderIndex);

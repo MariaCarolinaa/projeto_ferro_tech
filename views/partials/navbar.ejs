@@ -48,20 +48,27 @@
       <li class="nav-item">
         <a class="nav-link" href="/compras">Compras</a>
       </li>
-      <%}else{%>
-        <li class="nav-item">
-            <a class="nav-link" href="/compras">Logout</a>
-          </li>
-        <%}%>
+      <%}else{%> <%}%>
     </ul>
   </div>
+  <%if(login === null){%>
   <i
     class="fonteBotao"
     type="submit"
     data-toggle="modal"
     data-target="#loginCadastro"
-    >Cadastrar/Login</i
   >
+    Cadastrar/Login
+  </i>
+  <%}else{%>
+  <i
+    class="fonteBotao"
+    type="submit"
+    data-toggle="modal"
+    data-target="#logout"
+    >Logout
+  </i>
+  <%}%>
 </nav>
 
 <div
@@ -123,10 +130,40 @@
     </div>
   </div>
 </div>
-<% if (typeof login != "undefined") { %>
-     <% var login = login %>
 
-<script>
-  localStorage.setItem("info", JSON.stringify({ user: login }));
-</script>
-<% } %>
+<div
+  class="modal fade"
+  id="logout"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Logout Ferro-Tech
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/logout" method="POST">
+          <button
+            type="submit"
+            class="btn btn-outline-primary-login btn-outline-primary"
+            style="float: right"
+          >
+            Logout
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 const User = require("../models/User");
-const Material = require('../models/Material');
-const localStorage = require('localStorage');
+const Material = require("../models/Material");
+const localStorage = require("localStorage");
 
 class UserController {
   register(req, res) {
@@ -12,9 +12,9 @@ class UserController {
     const result = await User.findUser(login);
     if (result.length > 0) {
       if (result[0].senha == senha) {
-        localStorage.setItem('login', login);
+        localStorage.setItem("login", login);
         const materiais = await Material.findAll();
-        res.render("../views/index.ejs",{login, materiais});
+        res.render("../views/index.ejs", { login, materiais });
       } else {
         res.send({ mensagem: "login e senha invalidos" });
       }
@@ -33,6 +33,11 @@ class UserController {
     await User.insert(dados);
     res.redirect("/");
   }
-}
 
+    async logout(req, res){
+        const materiais = await Material.findAll();
+        localStorage.removeItem("login");
+        res.render("../views/index.ejs", {materiais, login : null});
+    }
+}
 module.exports = new UserController();
