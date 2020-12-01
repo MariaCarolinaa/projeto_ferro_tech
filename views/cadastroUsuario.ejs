@@ -16,12 +16,14 @@
                         <div class="form-group col-md-6">
                             <label for="login">Login</label>
                             <input type="input" class="form-control" id="login"
-                                placeholder="Ex: Antonio" name="login">
+                                placeholder="Ex: Antonio" name="login"
+                                maxlength="6">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="senha">Senha</label>
                             <input type="password" class="form-control" id="senha"
-                                 name="senha" maxlength="6">
+                                 name="senha"
+                                 maxlength="6" >
                         </div>
                     <div class="form-row row d-flex justify-content-center col-md-12">
                         <div class="form-group col-auto-md-3 botoesCadastro">
@@ -32,10 +34,6 @@
                     </div>
 
                 </form>
-                <%if(mensagem != null){%>
-                <h2><%=mensagem%></h2>
-                <%}else{}%>
-
             </div>
         </div>
     </div>

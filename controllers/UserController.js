@@ -4,7 +4,8 @@ const localStorage = require("localStorage");
 
 class UserController {
   register(req, res) {
-    res.render("../views/cadastroUsuario");
+    res.render(  "../views/cadastroUsuario", {login: localStorage.getItem('login')});
+    
   }
 
   async login(req, res, next) {
