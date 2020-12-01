@@ -61,12 +61,8 @@
     Cadastrar/Login
   </i>
   <%}else{%>
-    <span class="navbar-text pr-3 h5" >Bem vindo, <%=login%></span>
-  <i
-    class="fonteBotao"
-    type="submit"
-    data-toggle="modal"
-    data-target="#logout"
+  <span class="navbar-text pr-3 h5">Bem vindo, <%=login%></span>
+  <i class="fonteBotao" type="submit" data-toggle="modal" data-target="#logout"
     >Logout
   </i>
   <%}%>
@@ -143,7 +139,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          Logout Ferro-Tech
+          Deseja fazer Logout ?
         </h5>
         <button
           type="button"
@@ -154,17 +150,29 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+
+      <div class="modal-body text-center">
         <form action="/logout" method="POST">
           <button
             type="submit"
             class="btn btn-outline-primary-login btn-outline-primary"
-            style="float: right"
+            style="margin-right: 33px;"
           >
-            Logout
+            SIM
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-outline-primary-login btn-outline-primary ml-6"
+            data-dismiss="modal"
+            aria-label="close"
+
+          >
+            NÃO
           </button>
         </form>
       </div>
     </div>
   </div>
 </div>
+

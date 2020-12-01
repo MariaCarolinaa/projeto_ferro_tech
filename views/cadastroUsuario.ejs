@@ -25,13 +25,17 @@
                         </div>
                     <div class="form-row row d-flex justify-content-center col-md-12">
                         <div class="form-group col-auto-md-3 botoesCadastro">
-                            <a class="btn btn-outline-primary-login btn-outline-primary" href="/"
+                            <a class="btn btn-outline-primary-login btn-outline-primary" href="#"
                                 role="button">Voltar</a>
                             <button type="submit" class="btn btn-outline-dark ml-4">Cadastrar</button>
                         </div>
                     </div>
 
                 </form>
+                <%if(mensagem != null){%>
+                <h2><%=mensagem%></h2>
+                <%}else{}%>
+
             </div>
         </div>
     </div>
