@@ -9,7 +9,6 @@
             <table class="table text-center">
                 <thead>
                 <tr>
-                    <th scope="col">Código</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Peso</th>
                     <th scope="col">Unidade de referência</th>
@@ -23,7 +22,6 @@
                 <tbody>
                     <% materiais.forEach(material=>{%>
                         <tr>
-                            <td><%- material.codigo_material %></td>
                             <td><%- material.nome_material %></td>
                             <td><%- material.peso %></td>
                             <td><%- material.unidade_referencia %></td>
@@ -118,9 +116,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-3 form-group">
+                        <div class="col-sm-3 form-group d-none" >
                             <label for="codigo">Código</label>
-                            <input type="number" min="0" name="codigo_material" id="codigo" class="form-control">
+                            <input type="hidden" value="1" name="codigo_material" id="codigo" class="form-control">
                         </div>
                         <div class="col-sm form-group">
                             <label for="nome">Nome do material</label>
@@ -136,10 +134,7 @@
                             <label for="peso">Peso</label>
                             <input type="number" min="0" name="peso" id="peso" class="form-control">
                         </div>
-                        <div class="col-sm form-group">
-                            <label for="tipo">Tipo</label>
-                            <input type="text" name="tipo" id="tipo" class="form-control" required>
-                        </div>
+                        
                         <div class="col-sm form-group">
                             <label for="unidadeReferencia">Unidade de Referência</label>
                             <select name="unidade_referencia" id="unidadeReferencia" class="form-control">
@@ -149,7 +144,18 @@
                             </select>
                         </div>
                         <div class="col-sm form-group">
-                            <label for="preco">Preço</label>
+                            <label for="tipo">Tipo de material</label>
+                            <select name="tipo" id="tipo" class="form-control" required>
+                                <option value="metal">Metal</option>
+                                <option value="plastico">Plastico</option>
+                                <option value="vidro">Vidro</option>
+                                <option value="sucata">Sucata</option>
+                                <option value="eletronico">Eletronico</option>
+                                <option value="vidro">Outros</option>
+                            </select>
+                        </div>
+                        <div class="col-sm form-group">
+                            <label for="preco">Preço (R$)</label>
                             <input type="text" name="preco" id="preco" class="form-control">
                         </div>
 
