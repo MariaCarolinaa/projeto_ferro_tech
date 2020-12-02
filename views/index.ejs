@@ -40,19 +40,24 @@
         </div>
       </div>
     </div>
+
+    <%if(login != null){%>
     <div class="col">
       <div class="card card4" id="listMateriais">
         <ul class="list-group list-group-flush">
-          <div class="card-header">Lista de Materiais</div>
+          <div class="card-header">Meus Materiais</div>
 
           <div>
             <% materiais.forEach(material => {%>
+              <%if(material.usuario_material == login){%>
             <li class="list-group-item"><%- material.nome_material %></li>
+            <%}%>
             <% });%>
           </div>
         </ul>
       </div>
     </div>
+  <%}else{}%>
   </div>
 </div>
 <!-- Modal login/cadastro-->

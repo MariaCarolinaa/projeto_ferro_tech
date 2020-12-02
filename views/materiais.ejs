@@ -123,7 +123,7 @@
                             <input type="number" min="0" name="codigo_material" id="codigo" class="form-control">
                         </div>
                         <div class="col-sm form-group">
-                            <label for="nome">Nome</label>
+                            <label for="nome">Nome do material</label>
                             <input maxlength="100" type="text" name="nome_material" id="nome" class="form-control">
                         </div>
                         <div class="col-sm-3 form-group">
@@ -152,8 +152,13 @@
                             <label for="preco">Preço</label>
                             <input type="text" name="preco" id="preco" class="form-control">
                         </div>
-                       
+
                     </div>
+                    <div class="row">
+                    <div class="col-3 form-group">
+                        <input type="hidden" name="usuario_material" value=<%-login%> id="usuario_material"  class="form-control">
+                    </div>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
