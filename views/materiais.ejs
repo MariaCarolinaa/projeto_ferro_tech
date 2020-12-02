@@ -36,7 +36,60 @@
                             <td>
                                 <form method="POST" action="/materiais/excluir">
                                     <input type="hidden" name="id_material" value="<%- material.id_material %>">
-                                    <button type="submit" class="btn btn-outline-danger">EXCLUIR</button>
+                                    <button type="button"
+                                    data-toggle="modal"
+                                    data-target="#excluirMaterial"
+                                     class="btn btn-outline-danger">EXCLUIR</button>
+
+
+
+                                    
+                                        <div
+                                        class="modal fade"
+                                        id="excluirMaterial"
+                                        tabindex="-1"
+                                        aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true"
+                                        >
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                Você deseja realmente excluir ?
+                                            </h5>
+                                            <button
+                                            type="button"
+                                            class="close"
+                                            data-dismiss="modal"
+                                            aria-label="Close"
+                                            >
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="modal-body text-center">
+                                            
+                                            <button
+                                                type="submit"
+                                                class="btn btn-outline-primary-login btn-outline-primary"
+                                                style="margin-right: 33px;"
+                                            >
+                                                SIM
+                                            </button>
+
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-primary-login btn-outline-primary ml-6"
+                                                data-dismiss="modal"
+                                                aria-label="close"
+
+                                            >
+                                                NÃO
+                                            </button>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
                                 </form>
                             </td>
                         </tr>  
