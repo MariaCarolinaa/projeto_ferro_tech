@@ -41,5 +41,10 @@ class UserController {
     localStorage.removeItem("login");
     res.render("../views/index.ejs", { materiais, login: null });
   }
+
+  acessoNegado(req, res) {
+    localStorage.removeItem("login");
+    res.render("../views/acessoNegado.ejs", { login: null });
+  }
 }
 module.exports = new UserController();

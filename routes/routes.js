@@ -15,6 +15,7 @@ router.get("/cadastroUsuario", UserController.register);
 router.post("/login", UserController.login);
 router.post("/cadastro/usuario", UserController.novo);
 router.post("/logout", UserController.logout);
+router.get("/acessoNegado", UserController.acessoNegado);
 
 router.use(function (req, res, next) {
   if (localStorage.getItem("login") != null) {
