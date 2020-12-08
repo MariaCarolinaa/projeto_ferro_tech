@@ -4,8 +4,9 @@ const localStorage = require("localStorage");
 
 class UserController {
   register(req, res) {
-    res.render(  "../views/cadastroUsuario", {login: localStorage.getItem('login')});
-    
+    res.render("../views/cadastroUsuario", {
+      login: localStorage.getItem("login"),
+    });
   }
 
   async login(req, res, next) {
@@ -35,10 +36,10 @@ class UserController {
     res.redirect("/");
   }
 
-    async logout(req, res){
-        const materiais = await Material.findAll();
-        localStorage.removeItem("login");
-        res.render("../views/index.ejs", {materiais, login : null});
-    }
+  async logout(req, res) {
+    const materiais = await Material.findAll();
+    localStorage.removeItem("login");
+    res.render("../views/index.ejs", { materiais, login: null });
+  }
 }
 module.exports = new UserController();

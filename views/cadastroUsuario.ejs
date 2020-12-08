@@ -17,19 +17,24 @@
                             <label for="login">Login</label>
                             <input type="input" class="form-control" id="login"
                                 placeholder="Ex: Antonio" name="login"
-                                maxlength="6">
+                                maxlength="6"
+                                required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="senha">Senha</label>
                             <input type="password" class="form-control" id="senha"
                                  name="senha"
-                                 maxlength="6" >
+                                 maxlength="6"
+                                 required >
                         </div>
                     <div class="form-row row d-flex justify-content-center col-md-12">
                         <div class="form-group col-auto-md-3 botoesCadastro">
                             <a class="btn btn-outline-primary-login btn-outline-primary" href="#"
                                 role="button">Voltar</a>
-                            <button type="submit" class="btn btn-outline-dark ml-4">Cadastrar</button>
+                            <button type="submit"
+                             class="btn btn-outline-dark
+                              ml-4"
+                              >Cadastrar</button>
                         </div>
                     </div>
 
@@ -38,4 +43,7 @@
         </div>
     </div>
     </div>
+
+ 
 <%- include('partials/footer') %>
+
