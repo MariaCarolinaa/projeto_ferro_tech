@@ -1,32 +1,27 @@
 <%- include('partials/head') %> <%- include('partials/navbar') %>
 <div class="divCol1">
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-sm">
-      <div class="card card1">
+      <div class="card" style="min-height: 100%;">
         <img src="imgs/gif_manager.gif" class="card-img-top" />
         <div class="card-body">
           <h5 class="card-title">
             Vantagens de utilizar um software de gestão
           </h5>
-          <p class="card-text text-justify">
-            1. Controle do fluxo de caixa da empresa;
-            <br />
-            2. Gestão financeira completa e organizada;
-            <br />
-            3. Controle de estoque confiável;
-            <br />
-            4. Redução de erros manuais e humanos;
-            <br />
-            5. Otimização de processos, aumentando a produtividade;
-            <br />
-            Aqui você tem acesso a essas vantagens e mais!
-          </p>
+            <ul>
+              <li>Controle do fluxo de caixa da empresa</li>
+              <li>Gestão financeira completa e organizada</li>
+              <li>Controle de estoque confiável</li>
+              <li>Redução de erros manuais e humanos</li>
+              <li>Otimização de processos, aumentando a produtividade</li>
+            </ul>          
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="row">
-        <div class="card card2 col-12">
+
+
+    <div class="col-sm">
+        <div class="card" style="min-height: 100%;">
           <img src="imgs/gif_manager2.gif" class="card-img-top" />
           <div class="card-body">
             <h5 class="card-title">Cadastrar Compras</h5>
@@ -34,16 +29,14 @@
               Aqui você pode cadastrar as compras que deseja fazer, de modo
               rápido e ágil. Com isso você se poupa de todo aquela burocracia de
               preechimento de documentos, e o deslocamento até o vendedor.
-              Clique em "Ver mais" e comece agora.
             </p>
           </div>
         </div>
-      </div>
     </div>
 
     <%if(login != null){%>
     <div class="col">
-      <div class="card card4" id="listMateriais">
+      <div class="card" style="min-height: 100%;" id="listMateriais">
         <ul class="list-group list-group-flush">
           <div class="card-header">Meus Materiais</div>
 
@@ -62,4 +55,4 @@
 </div>
 <!-- Modal login/cadastro-->
 
-<%- include('partials/footerHome') %>
+<%- include('partials/footer') %>
