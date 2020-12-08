@@ -20,6 +20,8 @@ router.get("/acessoNegado", UserController.acessoNegado);
 router.use(function (req, res, next) {
   if (localStorage.getItem("login") != null) {
     next();
+  } else {
+    res.render("../views/acessoNegado.ejs", { login: null });
   }
 });
 
